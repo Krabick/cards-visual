@@ -2,6 +2,8 @@ import './App.css';
 import Header from './Header';
 import React, {useState} from 'react';
 import Body from './Body';
+import Footer from './Footer';
+
 
 
 
@@ -35,6 +37,7 @@ function App() {
     <div className = "App">
       <Header Name = 'HEADER'/>
         <Body Card = {Card} />
+        <Footer />
     </div>
   );
 }
