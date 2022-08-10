@@ -2,7 +2,7 @@ import './App.css';
 
 function Header({Name}) {
     return (
-        <div>
+        <div className = "Header">
             {Name}
         </div>
     );

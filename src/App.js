@@ -24,7 +24,7 @@ function App() {
         {
             id: 3,
             avatar: "https://wow.blizzwiki.ru/images/c/c5/BTNVillagerKid.png?20140531220010",
-            description: "так как пришел первым с конца",
+            description: "Так как пришел первым с конца",
             name: "Третий"
         }
     ])
@@ -32,8 +32,8 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Header Name = 'HEADER' />
+    <div className = "App">
+      <Header Name = 'HEADER'/>
         <Body Card = {Card} />
     </div>
   );
