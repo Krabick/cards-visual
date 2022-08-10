@@ -1,23 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './Header';
+import React, {useState} from 'react';
+import Body from './Body';
+
+
+
+
 
 function App() {
+    const [Card, setCard] = useState([
+        {
+            id: 1,
+            avatar: "https://wow.blizzwiki.ru/images/8/84/BTNBanditLord.png?20140531224959",
+            description: "Так как пришел первым",
+            name: "Первый"
+        },
+        {
+            id: 2,
+            avatar: "https://wow.blizzwiki.ru/images/1/13/BTNDarkTroll.png?20140531224252",
+            description: "Так как пришел вторым",
+            name: "Второй"
+        },
+        {
+            id: 3,
+            avatar: "https://wow.blizzwiki.ru/images/c/c5/BTNVillagerKid.png?20140531220010",
+            description: "так как пришел первым с конца",
+            name: "Третий"
+        }
+    ])
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header Name = 'HEADER' />
+        <Body Card = {Card} />
     </div>
   );
 }
