@@ -1,8 +1,8 @@
-import './App.css';
+import '../App.css';
 
 function Footer() {
     return (
-        <div className = "Footer">
+        <div className = 'footer'>
             Made by Krabick // 10.08.2022
         </div>
     );

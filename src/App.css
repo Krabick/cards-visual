@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.Header {
+.header {
 
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
   color: Black;
 }
 
-.CardsStyle {
+.cards-style {
 
   display: flex;
   flex-direction: column;
@@ -23,7 +23,14 @@
   margin-left: 100px;
 }
 
-.BodyStyleRowForCards {
+.cards-style:hover {
+  background-color: lightblue;
+  border-style: solid;
+}
+
+
+
+.body-style-row-for-cards {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -33,7 +40,7 @@
 
 }
 
-.BodyStyleColumn {
+.body-style-column {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,14 +48,14 @@
   margin-bottom: 10px
 }
 
-.ButtonsStyle {
+.buttons-style {
   display: flow ;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.ButtonsStyle2 {
+.buttons-style-2 {
   padding: 16px 32px;
   text-align: center;
   font-size: 16px;
@@ -60,7 +67,7 @@
   border: 2px solid #4CAF50
 }
 
-.Footer {
+.footer {
   position: fixed;
   width: 100%;
   left: 0;

@@ -1,8 +1,8 @@
-import './App.css';
+import '../App.css';
 
 function Header({Name}) {
     return (
-        <div className = "Header">
+        <div className = 'header'>
             {Name}
         </div>
     );
