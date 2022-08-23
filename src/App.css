@@ -76,3 +76,21 @@
   color: white;
   text-align: end;
 }
+
+.card-preview-style {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: blue;
+}
+
+.card-preview-close-button {
+  display: block;
+  position: fixed;
+  top: 35px;
+  right: 35px;
+  font-size: 36px;
+  color: green;
+  pointer-events: all;
+  cursor: pointer;
+}
