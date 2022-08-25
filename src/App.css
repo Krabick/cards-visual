@@ -21,11 +21,12 @@
   font-size: calc(20px);
   color: Black;
   margin-left: 100px;
+  border: 2px solid transparent
 }
 
 .cards-style:hover {
   background-color: lightblue;
-  border-style: solid;
+  border-color: black;
 }
 
 
@@ -79,9 +80,12 @@
 
 .card-preview-style {
   position: fixed;
-  height: 100%;
-  width: 100%;
-  background-color: blue;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background-color: #11111166;
 }
 
 .card-preview-close-button {
@@ -93,4 +97,5 @@
   color: green;
   pointer-events: all;
   cursor: pointer;
+  z-index: 100;
 }

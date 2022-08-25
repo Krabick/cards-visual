@@ -1,10 +1,9 @@
 import './App.css';
 import Header from './Header/Header';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Body from './Body/Body';
 import Footer from './Footer/Footer';
-
-
+import {httpApi, CONTENT_TYPES, METHODS} from './Api';
 
 const MOCK_CARDS = [
     {
@@ -29,7 +28,46 @@ const MOCK_CARDS = [
 
 
 function App() {
-    const [cards, setCards] = useState(MOCK_CARDS)
+    const [cards, setCards] = useState(MOCK_CARDS);
+
+    // lifecycle
+    useEffect(() => {
+        console.log('cards changed');
+    }, [cards]);
+
+    const fetchData = async () => {
+        httpApi.setMethod(METHODS.GET);
+        httpApi.setContentType(CONTENT_TYPES.APPLICATION_JSON);
+        const users = await httpApi.fetch("https://jsonplaceholder.typicode.com/users");
+        setCards((prevCards) => {
+            return prevCards.map((card, index) => {
+                return {
+                    ...card,
+                    name: users[index].name
+                }
+            })
+        })
+    };
+
+    // mount
+    useEffect(() => {
+        console.log('draw app');
+        // get data
+        // fetch data
+
+        // Method: GET POST | PUT DELETE...
+        // Path: google.com -> html
+        // https://jsonplaceholder.typicode.com/users GET payload = null response = [{}, {}...]
+        // async
+        fetchData();
+    }, []);
+
+    // unmount
+    useEffect(() => {
+        return () => {
+            console.log('undraw app');
+        }
+    }, []);
 
     return (
       <div className='App'>

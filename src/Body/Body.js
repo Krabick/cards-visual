@@ -12,7 +12,7 @@ function Body({Card}) {
 
           <div className='body-style-row-for-cards'>
             {Card.map((card) => (
-              <div key={card.id} className='cards-style'  onClick={() => setSelectedCard(true)}>
+              <div key={card.id} className='cards-style'  onClick={() => setSelectedCard(card)}>
                 <h1>{card.name}</h1>
                 <img src={card.avatar}/>
                 <div>{card.description}</div>
@@ -23,7 +23,7 @@ function Body({Card}) {
 
           {selectedCard && (
             <div>
-              <CardPreview cardID={selectedCard} />
+              <CardPreview card={selectedCard} />
               <a className='card-preview-close-button' onClick={() => setSelectedCard(false)}>X</a>
             </div>
           )}
