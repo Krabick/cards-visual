@@ -6,12 +6,15 @@ import CardPreview from '../CardPreview/CardPreview'
 
 function Body({Card}) {
     const [selectedCard, setSelectedCard] = useState(false)
+    const [showAll, setShowAll] = useState(false)
+    const numberOfCards = showAll ? Card.length : 8
+
     return (
         <div className='body-style-column'>
 
 
           <div className='body-style-row-for-cards'>
-            {Card.map((card) => (
+            {Card.slice(0, numberOfCards).map((card) => (
               <div key={card.id} className='cards-style'  onClick={() => setSelectedCard(card)}>
                 <h1>{card.name}</h1>
                 <img src={card.avatar}/>
@@ -20,7 +23,7 @@ function Body({Card}) {
             }
           </div>
 
-
+          <a className='card-show-all' onClick={() => setShowAll(true)}>Показать всё</a>
           {selectedCard && (
             <div>
               <CardPreview card={selectedCard} />

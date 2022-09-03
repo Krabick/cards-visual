@@ -4,6 +4,8 @@ import React, {useEffect, useState} from 'react';
 import Body from './Body/Body';
 import Footer from './Footer/Footer';
 import {httpApi, CONTENT_TYPES, METHODS} from './Api';
+import axios from "axios";
+
 
 const MOCK_CARDS = [
     {
@@ -27,53 +29,59 @@ const MOCK_CARDS = [
 ];
 
 
+
+
+
+
+
 function App() {
     const [cards, setCards] = useState(MOCK_CARDS);
 
-    // lifecycle
-    useEffect(() => {
-        console.log('cards changed');
-    }, [cards]);
+    // const options = {
+    //   method: 'GET',
+    //   url: 'https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/races/murloc',
+    //   headers: {
+    //     'X-RapidAPI-Key': '16bebb073amshc5e0cfce0946ad8p146a56jsne5369a2f356d',
+    //     'X-RapidAPI-Host': 'omgvamp-hearthstone-v1.p.rapidapi.com'
+    //     }
+    //   };
 
-    const fetchData = async () => {
-        httpApi.setMethod(METHODS.GET);
-        httpApi.setContentType(CONTENT_TYPES.APPLICATION_JSON);
-        const users = await httpApi.fetch("https://jsonplaceholder.typicode.com/users");
-        setCards((prevCards) => {
-            return prevCards.map((card, index) => {
-                return {
-                    ...card,
-                    name: users[index].name
+    useEffect(() => {
+        const options = {
+            method: 'GET',
+            url: 'https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/races/murloc',
+            headers: {
+                'X-RapidAPI-Key': '16bebb073amshc5e0cfce0946ad8p146a56jsne5369a2f356d',
+                'X-RapidAPI-Host': 'omgvamp-hearthstone-v1.p.rapidapi.com'
+            }
+        };
+        axios.request(options).then(function (response) {
+            const HSCards = response.data
+            HSCards.map((card, index) => {
+                if (index < 47) {
+                    return  setCards(prevCards => [...prevCards, {
+                          id: card.cardId,
+                          avatar: "http://wow.blizzwiki.ru/images/9/97/BTNMurloc.png",
+                          description: card.text ,
+                          name: card.name
+                      }]
+                    )
                 }
+                return
             })
-        })
-    };
 
-    // mount
-    useEffect(() => {
-        console.log('draw app');
-        // get data
-        // fetch data
+        }).catch(function (error) {
+            console.error(error);
+        });
 
-        // Method: GET POST | PUT DELETE...
-        // Path: google.com -> html
-        // https://jsonplaceholder.typicode.com/users GET payload = null response = [{}, {}...]
-        // async
-        fetchData();
-    }, []);
+    }, [])
 
-    // unmount
-    useEffect(() => {
-        return () => {
-            console.log('undraw app');
-        }
-    }, []);
 
     return (
       <div className='App'>
-          <Header Name='HEADER' />
-          <Body Card={cards} />
-          <Footer />
+          <Header Name='HEADER'/>
+          <Body Card={cards}/>
+          <Footer/>
       </div>
     );
 }
