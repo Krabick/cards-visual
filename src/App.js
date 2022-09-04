@@ -5,27 +5,28 @@ import Body from './Body/Body';
 import Footer from './Footer/Footer';
 import {httpApi, CONTENT_TYPES, METHODS} from './Api';
 import axios from "axios";
+import {getRandomElement, getRandomNumber} from "./RandomStats/RandomStats";
 
 
 const MOCK_CARDS = [
-    {
-        id: 1,
-        avatar: "https://wow.blizzwiki.ru/images/8/84/BTNBanditLord.png?20140531224959",
-        description: "Так как пришел первым",
-        name: "Первый"
-    },
-    {
-        id: 2,
-        avatar: "https://wow.blizzwiki.ru/images/1/13/BTNDarkTroll.png?20140531224252",
-        description: "Так как пришел вторым",
-        name: "Второй"
-    },
-    {
-        id: 3,
-        avatar: "https://wow.blizzwiki.ru/images/c/c5/BTNVillagerKid.png?20140531220010",
-        description: "Так как пришел первым с конца",
-        name: "Третий"
-    }
+//     {
+//         id: 1,
+//         avatar: "https://wow.blizzwiki.ru/images/8/84/BTNBanditLord.png?20140531224959",
+//         description: "Так как пришел первым",
+//         name: "Первый"
+//     },
+//     {
+//         id: 2,
+//         avatar: "https://wow.blizzwiki.ru/images/1/13/BTNDarkTroll.png?20140531224252",
+//         description: "Так как пришел вторым",
+//         name: "Второй"
+//     },
+//     {
+//         id: 3,
+//         avatar: "https://wow.blizzwiki.ru/images/c/c5/BTNVillagerKid.png?20140531220010",
+//         description: "Так как пришел первым с конца",
+//         name: "Третий"
+//     }
 ];
 
 
@@ -49,12 +50,15 @@ function App() {
         axios.request(options).then(function (response) {
             const HSCards = response.data
             HSCards.map((card, index) => {
-                if (index < 47) {
+                if (index < 50) {
                     return  setCards(prevCards => [...prevCards, {
                           id: card.cardId,
                           avatar: "http://wow.blizzwiki.ru/images/9/97/BTNMurloc.png",
                           description: card.text ,
-                          name: card.name
+                          name: card.name,
+                          power: getRandomNumber(0, 10),
+                          hp: getRandomNumber(4, 16),
+                          type: getRandomElement(),
                       }]
                     )
                 }

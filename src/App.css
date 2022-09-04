@@ -30,6 +30,7 @@
   flex-grow: 1;
   flex-basis: 21%;
   z-index: 0;
+  height: 300px;
 
 }
 
@@ -119,13 +120,46 @@
   cursor: pointer;
   z-index: 100;
   position: relative;
-  top: 0px;
+  top: 50px;
   right: 5px;
   opacity: 0;
   bottom: 10px;
+  float: bottom;
 
 }
 
 .delete-card-button:hover {
   opacity: 1
+}
+
+.cards-power-style {
+  display: flex;
+  font-size: 24px;
+  color: royalblue;
+  position: relative;
+  font-weight: bold;
+  align-self: flex-start;
+  float: left
+  /*order: 1*/
+  /*top: 20%;*/
+  /*right: 25%*/
+  /*bottom: 10px*/
+}
+
+.cards-hp-style {
+  display: flex;
+  font-size: 24px;
+  color: red;
+  position: relative;
+  font-weight: bold;
+  align-self: flex-start;
+  float: right;
+}
+
+.cards-type-style {
+
+  font-size: 24px;
+  opacity: 50%;
+  left: 50%;
+  float: bottom;
 }

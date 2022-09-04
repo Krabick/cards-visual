@@ -27,6 +27,9 @@ function Body({Card}) {
                 <h1>{card.name}</h1>
                 <img src={card.avatar}/>
                 <div>{card.description}</div>
+                <div className='cards-power-style'>{card.power}</div>
+                <div className='cards-hp-style'>{card.hp}</div>
+                <div className='cards-type-style'>{card.type}</div>
                 <button className='delete-card-button' onClick={() => DeleteCard(card.id)}>Удалить</button>
               </div>   ))
             }
