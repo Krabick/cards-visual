@@ -29,6 +29,8 @@
   padding: 2%;
   flex-grow: 1;
   flex-basis: 21%;
+  z-index: 0;
+
 }
 
 .cards-style:hover {
@@ -111,4 +113,19 @@
 
 .card-show-all {
   cursor: pointer;
+}
+
+.delete-card-button {
+  cursor: pointer;
+  z-index: 100;
+  position: relative;
+  top: 0px;
+  right: 5px;
+  opacity: 0;
+  bottom: 10px;
+
+}
+
+.delete-card-button:hover {
+  opacity: 1
 }

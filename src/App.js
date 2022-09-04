@@ -37,15 +37,6 @@ const MOCK_CARDS = [
 function App() {
     const [cards, setCards] = useState(MOCK_CARDS);
 
-    // const options = {
-    //   method: 'GET',
-    //   url: 'https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/races/murloc',
-    //   headers: {
-    //     'X-RapidAPI-Key': '16bebb073amshc5e0cfce0946ad8p146a56jsne5369a2f356d',
-    //     'X-RapidAPI-Host': 'omgvamp-hearthstone-v1.p.rapidapi.com'
-    //     }
-    //   };
-
     useEffect(() => {
         const options = {
             method: 'GET',
@@ -69,7 +60,6 @@ function App() {
                 }
                 return
             })
-
         }).catch(function (error) {
             console.error(error);
         });
